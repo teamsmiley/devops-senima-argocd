@@ -10,7 +10,7 @@ metadata:
 
 spec:
   rules:
-    - host: www.rendering.farm
+    - host: www4.rendering.farm
       http:
         paths:
           - path: /
