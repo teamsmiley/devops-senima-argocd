@@ -18,6 +18,6 @@ spec:
     spec:
       containers:
         - name: www
-          image: nginx:latest
+          image: nginx:529d43d32fbf685264379e8be18bb7719a122bff
           ports:
             - containerPort: 80
