@@ -18,6 +18,6 @@ spec:
     spec:
       containers:
         - name: www
-          image: test-nginx:latest
+          image: 530310289353.dkr.ecr.us-west-1.amazonaws.com/test-nginx:latest
           ports:
             - containerPort: 80
