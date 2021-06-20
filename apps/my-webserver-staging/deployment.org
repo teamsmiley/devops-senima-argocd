@@ -1,0 +1,23 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: www
+  namespace: default
+  labels:
+    app: www
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: www
+  template:
+    metadata:
+      labels:
+        app: www
+    spec:
+      containers:
+        - name: www
+          image: 530310289353.dkr.ecr.us-west-1.amazonaws.com/test-nginx:latest
+          ports:
+            - containerPort: 80
