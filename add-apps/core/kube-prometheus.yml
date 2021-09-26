@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: core-prometheus
+  namespace: argocd
+spec:
+  destination:
+    name: ""
+    namespace: ""
+    server: "https://kubernetes.default.svc"
+  source:
+    path: deploy/core/kube-prometheus/manifests
+    repoURL: "git@github.com:teamsmiley/argocd-c4.git"
+    targetRevision: HEAD
+    directory:
+      recurse: true
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

@@ -1,0 +1,3 @@
+metadata:
+  annotations:
+    notifications.argoproj.io/subscribe.on-sync-succeeded.slack: argocd

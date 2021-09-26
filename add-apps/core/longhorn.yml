@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: core-longhorn
+  namespace: argocd
+spec:
+  destination:
+    name: ""
+    namespace: longhorn-system
+    server: "https://kubernetes.default.svc"
+  source:
+    path: deploy/core/longhorn
+    repoURL: "git@github.com:teamsmiley/argocd-c4.git"
+    targetRevision: HEAD
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

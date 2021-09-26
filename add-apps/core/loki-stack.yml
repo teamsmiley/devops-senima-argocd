@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: core-loki-stack
+  namespace: argocd
+spec:
+  destination:
+    name: ""
+    namespace: monitoring
+    server: "https://kubernetes.default.svc"
+  source:
+    path: deploy/core/loki-stack
+    repoURL: "git@github.com:teamsmiley/argocd-c4.git"
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

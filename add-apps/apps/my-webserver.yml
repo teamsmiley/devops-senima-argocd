@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: my-webserver
+  namespace: argocd
+spec:
+  destination:
+    name: ""
+    namespace: default
+    server: "https://kubernetes.default.svc"
+  source:
+    path: deploy/apps/my-webserver
+    repoURL: "git@github.com:teamsmiley/devops-senima-argocd.git"
+    targetRevision: HEAD
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

@@ -1,0 +1,8 @@
+apiVersion: v1
+data:
+  service.slack: |
+    token: $slack-token
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: argocd-notifications-cm

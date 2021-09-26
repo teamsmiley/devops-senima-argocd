@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: www
+  namespace: default
+  annotations:
+    kubernetes.io/ingress.class: "alb" # alb를 사용하겠다
+    alb.ingress.kubernetes.io/scheme: internet-facing # 인터넷(public)에서 접속이 되게 한다.
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}]' # 포트를 80 443을 로드발란스에서 오픈하겟다.
+
+spec:
+  rules:
+    - host: www4.rendering.farm
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: www
+                port:
+                  number: 80
+        
