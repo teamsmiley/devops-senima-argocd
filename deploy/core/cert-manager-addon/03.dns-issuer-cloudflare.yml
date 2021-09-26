@@ -6,7 +6,7 @@ metadata:
   namespace: cert-manager
 type: Opaque
 stringData:
-  api-key: 6ad00e88bdd5489109fdfafe1e1307256c8bc
+  api-key: xxxxxxx
 
 ---
 apiVersion: cert-manager.io/v1
@@ -27,5 +27,3 @@ spec:
             apiKeySecretRef:
               name: cloudflare-secret
               key: api-key
-
-
